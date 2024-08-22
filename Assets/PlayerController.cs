@@ -7,14 +7,10 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 5f;
     private float inputX;
+    private float inputY;
     Rigidbody2D rb;
-    [SerializeField] private bool facingRight = true;
-    [SerializeField] private float jumpForce = 5f;
 
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private float checkRadius = 0.2f;
-    [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private bool isGrounded;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,35 +21,28 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
         inputX = Input.GetAxisRaw("Horizontal");
-        if (inputX < 0 && facingRight)
-        {
-            Flip();
-        }
-        if (inputX > 0 && !facingRight)
-        {
-            Flip();
-        }
-
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, 0);
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        }
+        inputY = Input.GetAxisRaw("Vertical");
+        
+        faceMouse();
+        
 
     }
+    void faceMouse()
+    {
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
+        Vector2 direction = new Vector2(
+            mousePosition.x - transform.position.x,
+            mousePosition.y - transform.position.y);
+        transform.up = direction;
+    }
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(inputX * speed, rb.velocity.y);
+        rb.velocity = new Vector2(inputX * speed, inputY * speed);
+
     }
 
-    void Flip()
-    {
-        Vector3 tempScale = transform.localScale;
-        tempScale.x *= -1f;
-        transform.localScale = tempScale;
-        facingRight = !facingRight;
-    }
+
 }
