@@ -7,7 +7,15 @@ public class Weapon : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
     public float fireForce = 20f;
+    public Weapon weapon;
 
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            weapon.Fire();
+        }
+    }
     public void Fire()
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
