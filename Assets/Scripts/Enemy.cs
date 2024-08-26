@@ -38,4 +38,12 @@ public class Enemy : MonoBehaviour
             rb.velocity = new Vector2(moveDirection.x, moveDirection.y)*moveSpeed;
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Destroy(other.gameObject);
+        }
+    }
 }

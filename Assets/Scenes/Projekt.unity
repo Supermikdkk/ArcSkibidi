@@ -3429,7 +3429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 7960430728826647996, guid: 706b3fb1d1f55de4a9cb9e9c28e6daa6, type: 3}
   enemySpawnpoint: {fileID: 200086685}
-  firstSpawnTime: 5
+  firstSpawnTime: 2
   spawnTime: 15
 --- !u!4 &200086685
 Transform:
@@ -3492,7 +3492,7 @@ GameObject:
   - component: {fileID: 837075551}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29640,7 +29640,7 @@ GameObject:
   - component: {fileID: 1415738401}
   - component: {fileID: 1415738400}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Edge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30030,7 +30030,7 @@ GameObject:
   - component: {fileID: 1600528940}
   - component: {fileID: 1600528939}
   m_Layer: 0
-  m_Name: Square (3)
+  m_Name: Edge (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30492,7 +30492,7 @@ GameObject:
   - component: {fileID: 1836144548}
   - component: {fileID: 1836144547}
   m_Layer: 0
-  m_Name: Square (2)
+  m_Name: Edge (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30770,7 +30770,7 @@ GameObject:
   - component: {fileID: 2101894074}
   - component: {fileID: 2101894073}
   m_Layer: 0
-  m_Name: Square (1)
+  m_Name: Edge (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
